@@ -9,6 +9,13 @@ pipeline {
     K8S_CLUSTER_REGION = 'eu-north-1'
   }
 
+  stages {
+  stage("Creating NAMESPACE"){
+  sh '''
+  kubectl create namespace nasmat-hana-namespace
+  '''
+  }
+  }
 
   stages {
     stage('MNIST Web Server - build'){
@@ -37,7 +44,7 @@ pipeline {
         when { branch "master" }
         steps {
             sh '''
-            IMAGE="mnist-predictor:0.0.${BUILD_NUMBER}"
+            IMAGE="mnist-predictor-na-ha:0.0.${BUILD_NUMBER}"
             cd ml_model
             aws ecr get-login-password --region $ECR_REGION | docker login --username AWS --password-stdin ${REGISTRY_URL}
             docker build -t ${IMAGE} .
@@ -51,7 +58,7 @@ pipeline {
         steps {
             sh '''
             cd infra/k8s
-            IMG_NAME=mnist-predictor:0.0.${BUILD_NUMBER}
+            IMG_NAME=mnist-predictor-na-ha:0.0.${BUILD_NUMBER}
 
             # replace registry url and image name placeholders in yaml
             sed -i "s/{{REGISTRY_URL}}/$REGISTRY_URL/g" mnist-predictor.yaml
