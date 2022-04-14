@@ -10,10 +10,13 @@ pipeline {
   }
 
   stages {
+
     stage("Creating NAMESPACE"){
-        sh '''
-        kubectl create namespace nasmat-hana-namespace
-        '''
+      steps {
+          sh '''
+          kubectl create namespace nasmat-hana-namespace
+          '''
+      }
     }
 
     stage('MNIST Web Server - build'){
@@ -24,9 +27,6 @@ pipeline {
           '''
       }
     }
-
-
-
 
     stage('MNIST Web Server - deploy'){
         when { branch "master" }
