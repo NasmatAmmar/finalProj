@@ -10,11 +10,11 @@ pipeline {
   }
 
   stages {
-  stage("Creating NAMESPACE"){
-  sh '''
-  kubectl create namespace nasmat-hana-namespace
-  '''
-  }
+    stage("Creating NAMESPACE"){
+        sh '''
+        kubectl create namespace nasmat-hana-namespace
+        '''
+    }
   }
 
   stages {
