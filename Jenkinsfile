@@ -10,7 +10,6 @@ pipeline {
   }
 
 
-
   stages {
     stage('MNIST Web Server - build'){
       when { branch "master" }
