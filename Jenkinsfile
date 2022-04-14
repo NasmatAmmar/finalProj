@@ -2,11 +2,11 @@ pipeline {
   agent any
 
   environment {
-    REGISTRY_URL = ''
-    ECR_REGION = ''
-    K8S_NAMESPACE = ''
-    K8S_CLUSTER_NAME = ''
-    K8S_CLUSTER_REGION = ''
+    REGISTRY_URL = '352708296901.dkr.ecr.eu-north-1.amazonaws.com'
+    ECR_REGION = 'eu-north-1'
+    K8S_NAMESPACE = 'Nasmat-Hana-Namespace'
+    K8S_CLUSTER_NAME = 'devops-alfnar-k8s'
+    K8S_CLUSTER_REGION = 'eu-north-1'
   }
 
   stages {
