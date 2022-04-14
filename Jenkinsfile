@@ -15,9 +15,7 @@ pipeline {
         kubectl create namespace nasmat-hana-namespace
         '''
     }
-  }
 
-  stages {
     stage('MNIST Web Server - build'){
       when { branch "master" }
       steps {
