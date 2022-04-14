@@ -18,6 +18,10 @@ pipeline {
           '''
       }
     }
+
+
+
+
     stage('MNIST Web Server - deploy'){
         when { branch "master" }
         steps {
