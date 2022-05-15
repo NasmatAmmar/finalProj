@@ -14,8 +14,7 @@ pipeline {
     stage('Creating NAMESPACE'){
       steps {
           sh '''
-          aws eks --region ${K8S_CLUSTER_REGION} update-kubeconfig --name ${K8S_CLUSTER_NAME}
-          kubectl create namespace ${K8S_NAMESPACE} --dry-run=client -o yaml | kubectl apply -f -
+          kubectl create namespace ${K8S_NAMESPACE}
           '''
       }
     }
