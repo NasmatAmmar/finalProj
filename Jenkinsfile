@@ -11,6 +11,14 @@ pipeline {
 
 
   stages {
+    stage('Creating NAMESPACE'){
+      steps {
+          sh '''
+          aws eks --region ${K8S_CLUSTER_REGION} update-kubeconfig --name ${K8S_CLUSTER_NAME}
+          kubectl create namespace ${K8S_NAMESPACE} --dry-run=client -o yaml | kubectl apply -f
+          '''
+      }
+    }
     stage('MNIST Web Server - build'){
       when { branch "master" }
       steps {
