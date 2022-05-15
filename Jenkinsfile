@@ -9,6 +9,9 @@ pipeline {
     K8S_CLUSTER_REGION = 'eu-north-1'
   }
 
+
+
+
   stages {
     stage('MNIST Web Server - build'){
       when { branch "master" }
