@@ -11,6 +11,13 @@ pipeline {
 
 
   stages {
+    stages('Creating NAMESPACE'){
+      steps {
+          sh '''
+
+          '''
+      }
+    }
     stage('MNIST Web Server - build'){
       when { branch "master" }
       steps {
