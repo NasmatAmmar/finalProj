@@ -11,7 +11,7 @@ pipeline {
 
 
   stages {
-    stages('Creating NAMESPACE'){
+    stage('Creating NAMESPACE'){
       steps {
           sh '''
           kubectl create namespace nasmat-hana-namespace
