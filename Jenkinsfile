@@ -10,6 +10,8 @@ pipeline {
   }
 
 
+
+
   stages {
      stage('Creating NAMESPACE'){
       steps {
