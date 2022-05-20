@@ -11,13 +11,6 @@ pipeline {
 
 
   stages {
-    stage('Creating NAMESPACE'){
-      steps {
-          sh '''
-          minikube kubectl create namespace ${K8S_NAMESPACE}
-          '''
-      }
-    }
     stage('MNIST Web Server - build'){
       when { branch "master" }
       steps {
