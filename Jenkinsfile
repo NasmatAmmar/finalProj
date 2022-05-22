@@ -1,6 +1,7 @@
 pipeline {
   agent any
 
+
   environment {
     REGISTRY_URL = '352708296901.dkr.ecr.eu-west-1.amazonaws.com'
     ECR_REGION = 'eu-west-1'
@@ -8,6 +9,8 @@ pipeline {
     K8S_CLUSTER_NAME = 'devops-alfnar-k8s'
     K8S_CLUSTER_REGION = 'eu-north-1'
   }
+
+
 
   stages {
      stage('Creating NAMESPACE'){
