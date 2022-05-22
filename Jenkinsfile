@@ -9,6 +9,10 @@ pipeline {
     K8S_CLUSTER_REGION = 'eu-north-1'
   }
 
+
+
+
+
   stages {
      stage('Creating NAMESPACE'){
       steps {
