@@ -4,13 +4,10 @@ pipeline {
   environment {
     REGISTRY_URL = '352708296901.dkr.ecr.eu-west-1.amazonaws.com'
     ECR_REGION = 'eu-west-1'
-    K8S_NAMESPACE = 'nasmat-hana-namespace-new'
+    K8S_NAMESPACE = 'nasmat-hana-namespace-new-1'
     K8S_CLUSTER_NAME = 'devops-alfnar-k8s'
     K8S_CLUSTER_REGION = 'eu-north-1'
   }
-
-
-
 
   stages {
      stage('Creating NAMESPACE'){
@@ -20,7 +17,6 @@ pipeline {
           '''
       }
     }
-
 
     stage('MNIST Web Server - build'){
       when { branch "master" }
